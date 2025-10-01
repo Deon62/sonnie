@@ -919,6 +919,61 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.9rem;
 }
 
+/* Countdown Timer */
+.countdown-container {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.countdown-text {
+    color: #E8E8E8;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    background: rgba(44, 122, 123, 0.2);
+    border: 2px solid #2C7A7B;
+    border-radius: 10px;
+    padding: 1rem 0.8rem;
+    min-width: 80px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.countdown-item:hover {
+    background: rgba(44, 122, 123, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(44, 122, 123, 0.3);
+}
+
+.countdown-number {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2C7A7B;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1;
+}
+
+.countdown-label {
+    display: block;
+    font-size: 0.8rem;
+    color: #E8E8E8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.3rem;
+    font-weight: 600;
+}
+
 /* FAQ Section */
 .faq-section {
     padding: 4rem 0;
@@ -1330,6 +1385,23 @@ h1, h2, h3, h4, h5, h6 {
     
     .faq-item.active .faq-answer {
         padding: 0 1rem 1rem 1rem;
+    }
+    
+    .countdown-timer {
+        gap: 0.5rem;
+    }
+    
+    .countdown-item {
+        min-width: 60px;
+        padding: 0.8rem 0.5rem;
+    }
+    
+    .countdown-number {
+        font-size: 1.4rem;
+    }
+    
+    .countdown-label {
+        font-size: 0.7rem;
     }
 }
 

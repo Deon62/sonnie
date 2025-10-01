@@ -289,6 +289,54 @@ function toggleFAQ(element) {
     }
 }
 
+// Countdown Timer functionality
+function initializeCountdown() {
+    // Get or set the end time in localStorage
+    let endTime = localStorage.getItem('countdownEndTime');
+    
+    if (!endTime) {
+        // Set end time to 4 days from now
+        endTime = new Date().getTime() + (4 * 24 * 60 * 60 * 1000);
+        localStorage.setItem('countdownEndTime', endTime);
+    } else {
+        endTime = parseInt(endTime);
+    }
+    
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = endTime - now;
+        
+        if (distance < 0) {
+            // Timer has ended, reset to 4 days
+            endTime = new Date().getTime() + (4 * 24 * 60 * 60 * 1000);
+            localStorage.setItem('countdownEndTime', endTime);
+            updateCountdown();
+            return;
+        }
+        
+        // Calculate time units
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        // Update the display
+        const daysElement = document.getElementById('days');
+        const hoursElement = document.getElementById('hours');
+        const minutesElement = document.getElementById('minutes');
+        const secondsElement = document.getElementById('seconds');
+        
+        if (daysElement) daysElement.textContent = days;
+        if (hoursElement) hoursElement.textContent = hours.toString().padStart(2, '0');
+        if (minutesElement) minutesElement.textContent = minutes.toString().padStart(2, '0');
+        if (secondsElement) secondsElement.textContent = seconds.toString().padStart(2, '0');
+    }
+    
+    // Update immediately and then every second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+}
+
 // Demo booking form submission
 document.addEventListener('DOMContentLoaded', function() {
     const demoForm = document.getElementById('demoBookingForm');
@@ -450,4 +498,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         mentorObserver.observe(mentorSection);
     }
+    
+    // Initialize countdown timer
+    initializeCountdown();
 });
