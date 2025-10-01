@@ -1057,8 +1057,14 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .form-actions {
-        flex-direction: column;
+        flex-direction: row;
         gap: 0.8rem;
+    }
+    
+    .form-actions button {
+        flex: 1;
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
     }
 }
 
