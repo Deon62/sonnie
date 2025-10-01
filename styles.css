@@ -473,21 +473,26 @@ h1, h2, h3, h4, h5, h6 {
     color: #E8E8E8;
 }
 
-.contact-info {
-    background: rgba(44, 62, 80, 0.5);
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
-.contact-info p {
-    margin: 0.8rem 0;
-    font-size: 1rem;
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
-.contact-info strong {
+.social-icon:hover {
     color: #2C7A7B;
+    transform: translateY(-2px);
 }
 
 /* Footer */
@@ -702,6 +707,15 @@ h1, h2, h3, h4, h5, h6 {
     
     .card {
         padding: 1.5rem 1rem;
+    }
+    
+    .social-icons {
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .social-icon {
+        font-size: 1rem;
     }
 }
 
