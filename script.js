@@ -273,6 +273,22 @@ function selectTimeSlot(date, time) {
     bookingForm.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
+// FAQ Toggle functionality
+function toggleFAQ(element) {
+    const faqItem = element.parentElement;
+    const isActive = faqItem.classList.contains('active');
+    
+    // Close all other FAQ items
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    // Toggle current item
+    if (!isActive) {
+        faqItem.classList.add('active');
+    }
+}
+
 // Demo booking form submission
 document.addEventListener('DOMContentLoaded', function() {
     const demoForm = document.getElementById('demoBookingForm');
