@@ -944,9 +944,9 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
-    padding: 2rem;
-    min-width: 350px;
-    max-width: 350px;
+    padding: 1.5rem;
+    min-width: 300px;
+    max-width: 300px;
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
 }
@@ -972,6 +972,10 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
 }
 
+.author-info {
+    flex: 1;
+}
+
 .author-info h4 {
     color: white;
     margin: 0 0 0.3rem 0;
@@ -989,6 +993,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #FFD700;
     font-size: 1.1rem;
     letter-spacing: 2px;
+    flex-shrink: 0;
 }
 
 @keyframes scrollTestimonials {
@@ -1491,9 +1496,9 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .testimonial-card {
-        min-width: 280px;
-        max-width: 280px;
-        padding: 1.5rem;
+        min-width: 250px;
+        max-width: 250px;
+        padding: 1.2rem;
     }
     
     .testimonial-content p {
