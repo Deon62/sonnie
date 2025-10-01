@@ -201,6 +201,17 @@ window.onclick = function(event) {
     }
 }
 
+// Scroll to Program Overview section
+function scrollToJoinNow() {
+    const programSection = document.querySelector('.program-overview');
+    if (programSection) {
+        programSection.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
 // Calendar modal functions
 function openCalendarModal() {
     const modal = document.getElementById('calendarModal');
