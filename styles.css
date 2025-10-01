@@ -183,6 +183,27 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.2rem;
 }
 
+.cta-button.secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.cta-button.secondary:hover {
+    background: white;
+    color: #2C3E50;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 /* Why Program Section */
 .why-program {
     padding: 4rem 0;
@@ -768,6 +789,136 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 4px 15px rgba(44, 122, 123, 0.3);
 }
 
+/* Calendar Modal Styles */
+.calendar-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.consultation-info {
+    background: rgba(44, 62, 80, 0.3);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.consultation-info h3 {
+    color: white;
+    margin: 0 0 1rem 0;
+    font-size: 1.3rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.consultation-info p {
+    color: #E8E8E8;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.consultation-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.benefit-icon {
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+}
+
+.calendar-widget h4 {
+    color: white;
+    margin: 0 0 1.5rem 0;
+    font-size: 1.2rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.time-slots {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.date-group h5 {
+    color: #2C7A7B;
+    margin: 0 0 0.8rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.time-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.time-slot {
+    padding: 0.6rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.time-slot:hover {
+    border-color: #2C7A7B;
+    background: rgba(44, 122, 123, 0.2);
+    color: #2C7A7B;
+}
+
+.time-slot.selected {
+    border-color: #2C7A7B;
+    background: rgba(44, 122, 123, 0.3);
+    color: #2C7A7B;
+}
+
+.booking-form {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.booking-form h4 {
+    color: white;
+    margin: 0 0 1.5rem 0;
+    font-size: 1.2rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.selected-time {
+    background: rgba(44, 122, 123, 0.2);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #2C7A7B;
+}
+
+.selected-time h5 {
+    color: #2C7A7B;
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+}
+
+.selected-time p {
+    color: white;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
 /* Footer */
 .footer {
     background: #1A1A1A;
@@ -1065,6 +1216,29 @@ h1, h2, h3, h4, h5, h6 {
         flex: 1;
         padding: 0.7rem 1rem;
         font-size: 0.9rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .calendar-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .consultation-info {
+        padding: 1rem;
+    }
+    
+    .time-options {
+        flex-direction: column;
+    }
+    
+    .time-slot {
+        width: 100%;
+        text-align: center;
     }
 }
 

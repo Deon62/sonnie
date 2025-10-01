@@ -191,11 +191,105 @@ function closeReservationModal() {
 
 // Close modal when clicking outside
 window.onclick = function(event) {
-    const modal = document.getElementById('reservationModal');
-    if (event.target === modal) {
+    const reservationModal = document.getElementById('reservationModal');
+    const calendarModal = document.getElementById('calendarModal');
+    if (event.target === reservationModal) {
         closeReservationModal();
     }
+    if (event.target === calendarModal) {
+        closeCalendarModal();
+    }
 }
+
+// Calendar modal functions
+function openCalendarModal() {
+    const modal = document.getElementById('calendarModal');
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCalendarModal() {
+    const modal = document.getElementById('calendarModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+    // Reset form
+    document.getElementById('bookingForm').style.display = 'none';
+    document.getElementById('demoBookingForm').reset();
+    // Clear selected time slots
+    document.querySelectorAll('.time-slot').forEach(slot => {
+        slot.classList.remove('selected');
+    });
+}
+
+// Time slot selection
+function selectTimeSlot(date, time) {
+    // Clear previous selections
+    document.querySelectorAll('.time-slot').forEach(slot => {
+        slot.classList.remove('selected');
+    });
+    
+    // Select current slot
+    event.target.classList.add('selected');
+    
+    // Show booking form
+    const bookingForm = document.getElementById('bookingForm');
+    const selectedTime = document.getElementById('selectedTime');
+    
+    // Format the selected time
+    let timeText = '';
+    let dateText = '';
+    
+    switch(date) {
+        case 'today':
+            dateText = 'Today';
+            break;
+        case 'tomorrow':
+            dateText = 'Tomorrow';
+            break;
+        case 'week':
+            dateText = 'This Week';
+            break;
+    }
+    
+    timeText = event.target.textContent;
+    
+    selectedTime.innerHTML = `
+        <h5>Selected Time</h5>
+        <p><strong>${dateText}</strong> - ${timeText}</p>
+    `;
+    
+    bookingForm.style.display = 'block';
+    bookingForm.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// Demo booking form submission
+document.addEventListener('DOMContentLoaded', function() {
+    const demoForm = document.getElementById('demoBookingForm');
+    if (demoForm) {
+        demoForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(demoForm);
+            const data = Object.fromEntries(formData);
+            
+            // Show loading state
+            const submitBtn = demoForm.querySelector('.btn-primary');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Booking...';
+            submitBtn.disabled = true;
+            
+            // Simulate booking process
+            setTimeout(() => {
+                alert('Demo consultation booked successfully! You will receive a confirmation email with meeting details shortly.');
+                closeCalendarModal();
+                demoForm.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+    }
+});
 
 // Crypto payment functionality
 document.addEventListener('DOMContentLoaded', function() {

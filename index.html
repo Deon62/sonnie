@@ -31,7 +31,10 @@
             <div class="hero-content">
                 <h1 class="hero-title">Master Crypto in 30 Days</h1>
                 <p class="hero-subtitle">From beginner to confident trader  guided by an expert.</p>
-                <button class="cta-button primary" onclick="openReservationModal()">Reserve Your Spot</button>
+                <div class="hero-buttons">
+                    <button class="cta-button primary" onclick="openReservationModal()">Reserve Your Spot</button>
+                    <button class="cta-button secondary" onclick="openCalendarModal()">Book Demo</button>
+                </div>
             </div>
         </div>
     </section>
@@ -329,6 +332,99 @@
                         <button type="submit" class="btn-primary">Reserve</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calendar Booking Modal -->
+    <div id="calendarModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Book a Free Consultation</h2>
+                <span class="close" onclick="closeCalendarModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="calendar-content">
+                    <div class="consultation-info">
+                        <h3>Free 30-Minute Consultation</h3>
+                        <p>Get personalized advice on your crypto trading journey with Sarah.</p>
+                        <div class="consultation-benefits">
+                            <div class="benefit-item">
+                                <span class="benefit-icon">•</span>
+                                <span>Personalized trading strategy</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">•</span>
+                                <span>Portfolio analysis</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">•</span>
+                                <span>Risk management tips</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">•</span>
+                                <span>Growth opportunities</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-widget">
+                        <h4>Select Your Preferred Time</h4>
+                        <div class="time-slots">
+                            <div class="date-group">
+                                <h5>Today</h5>
+                                <div class="time-options">
+                                    <button class="time-slot" onclick="selectTimeSlot('today', '10:00')">10:00 AM</button>
+                                    <button class="time-slot" onclick="selectTimeSlot('today', '14:00')">2:00 PM</button>
+                                    <button class="time-slot" onclick="selectTimeSlot('today', '16:00')">4:00 PM</button>
+                                </div>
+                            </div>
+                            <div class="date-group">
+                                <h5>Tomorrow</h5>
+                                <div class="time-options">
+                                    <button class="time-slot" onclick="selectTimeSlot('tomorrow', '09:00')">9:00 AM</button>
+                                    <button class="time-slot" onclick="selectTimeSlot('tomorrow', '11:00')">11:00 AM</button>
+                                    <button class="time-slot" onclick="selectTimeSlot('tomorrow', '15:00')">3:00 PM</button>
+                                </div>
+                            </div>
+                            <div class="date-group">
+                                <h5>This Week</h5>
+                                <div class="time-options">
+                                    <button class="time-slot" onclick="selectTimeSlot('week', '10:00')">Wed 10:00 AM</button>
+                                    <button class="time-slot" onclick="selectTimeSlot('week', '14:00')">Thu 2:00 PM</button>
+                                    <button class="time-slot" onclick="selectTimeSlot('week', '16:00')">Fri 4:00 PM</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="booking-form" id="bookingForm" style="display: none;">
+                            <h4>Your Details</h4>
+                            <form id="demoBookingForm">
+                                <div class="form-group">
+                                    <label for="demoName">Full Name</label>
+                                    <input type="text" id="demoName" name="demoName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="demoEmail">Email</label>
+                                    <input type="email" id="demoEmail" name="demoEmail" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="demoPhone">Phone (Optional)</label>
+                                    <input type="tel" id="demoPhone" name="demoPhone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="demoGoals">What would you like to discuss?</label>
+                                    <textarea id="demoGoals" name="demoGoals" rows="3" placeholder="Tell us about your trading goals and questions..."></textarea>
+                                </div>
+                                <div class="selected-time" id="selectedTime"></div>
+                                <div class="form-actions">
+                                    <button type="button" class="btn-secondary" onclick="closeCalendarModal()">Cancel</button>
+                                    <button type="submit" class="btn-primary">Confirm Booking</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
