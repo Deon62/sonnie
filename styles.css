@@ -919,6 +919,92 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.9rem;
 }
 
+/* Social Proof Section */
+.social-proof-section {
+    padding: 4rem 0;
+    background: #34495E;
+    overflow: hidden;
+}
+
+.testimonials-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 2rem;
+}
+
+.testimonials-track {
+    display: flex;
+    gap: 2rem;
+    animation: scrollTestimonials 30s linear infinite;
+    width: max-content;
+}
+
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    min-width: 350px;
+    max-width: 350px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(44, 122, 123, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-content p {
+    color: #E8E8E8;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.author-info h4 {
+    color: white;
+    margin: 0 0 0.3rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.author-info span {
+    color: #2C7A7B;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.rating {
+    color: #FFD700;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+
+@keyframes scrollTestimonials {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Pause animation on hover */
+.testimonials-container:hover .testimonials-track {
+    animation-play-state: paused;
+}
+
 /* Countdown Timer */
 .countdown-container {
     margin-top: 2rem;
@@ -1402,6 +1488,28 @@ h1, h2, h3, h4, h5, h6 {
     
     .countdown-label {
         font-size: 0.7rem;
+    }
+    
+    .testimonial-card {
+        min-width: 280px;
+        max-width: 280px;
+        padding: 1.5rem;
+    }
+    
+    .testimonial-content p {
+        font-size: 0.9rem;
+    }
+    
+    .author-info h4 {
+        font-size: 0.9rem;
+    }
+    
+    .author-info span {
+        font-size: 0.8rem;
+    }
+    
+    .rating {
+        font-size: 1rem;
     }
 }
 

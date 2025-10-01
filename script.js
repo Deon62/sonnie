@@ -501,4 +501,22 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize countdown timer
     initializeCountdown();
+    
+    // Initialize testimonials carousel
+    initializeTestimonials();
 });
+
+// Testimonials carousel functionality
+function initializeTestimonials() {
+    const track = document.getElementById('testimonialsTrack');
+    if (!track) return;
+    
+    // Clone the testimonials for seamless infinite scroll
+    const testimonials = track.innerHTML;
+    track.innerHTML = testimonials + testimonials;
+    
+    // Reset animation when it completes
+    track.addEventListener('animationiteration', function() {
+        // The animation will automatically loop due to infinite property
+    });
+}
