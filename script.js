@@ -176,6 +176,99 @@ function scrollToSection(sectionId) {
     }
 }
 
+// Modal functions
+function openReservationModal() {
+    const modal = document.getElementById('reservationModal');
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeReservationModal() {
+    const modal = document.getElementById('reservationModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('reservationModal');
+    if (event.target === modal) {
+        closeReservationModal();
+    }
+}
+
+// Crypto payment functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const paymentMethods = document.querySelectorAll('input[name="paymentMethod"]');
+    const cryptoAmount = document.getElementById('cryptoAmount');
+    
+    // Mock crypto prices (in USD)
+    const cryptoPrices = {
+        bitcoin: 45000,
+        ethereum: 2800,
+        usdt: 1,
+        stellar: 0.12
+    };
+    
+    const usdAmount = 497;
+    
+    function updateCryptoAmount() {
+        const selectedMethod = document.querySelector('input[name="paymentMethod"]:checked');
+        if (selectedMethod) {
+            const crypto = selectedMethod.value;
+            const price = cryptoPrices[crypto];
+            const amount = (usdAmount / price).toFixed(6);
+            
+            let symbol = '';
+            switch(crypto) {
+                case 'bitcoin':
+                    symbol = '₿';
+                    break;
+                case 'ethereum':
+                    symbol = 'Ξ';
+                    break;
+                case 'usdt':
+                    symbol = '₮';
+                    break;
+                case 'stellar':
+                    symbol = '★';
+                    break;
+            }
+            
+            cryptoAmount.innerHTML = `<span class="crypto-price">${amount} ${symbol}</span>`;
+        }
+    }
+    
+    paymentMethods.forEach(method => {
+        method.addEventListener('change', updateCryptoAmount);
+    });
+    
+    // Form submission
+    const form = document.getElementById('reservationForm');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        
+        // Show loading state
+        const submitBtn = form.querySelector('.btn-primary');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Processing...';
+        submitBtn.disabled = true;
+        
+        // Simulate payment processing
+        setTimeout(() => {
+            alert('Reservation successful! You will receive a confirmation email shortly with payment instructions.');
+            closeReservationModal();
+            form.reset();
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }, 2000);
+    });
+});
+
 // Global function for toggling program cards (removed - handled by event listeners)
 
 // Add some interactive elements

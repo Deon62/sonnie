@@ -31,7 +31,7 @@
             <div class="hero-content">
                 <h1 class="hero-title">Master Crypto in 30 Days</h1>
                 <p class="hero-subtitle">From beginner to confident trader  guided by an expert.</p>
-                <button class="cta-button primary" onclick="scrollToSection('cta')">Reserve Your Spot</button>
+                <button class="cta-button primary" onclick="openReservationModal()">Reserve Your Spot</button>
             </div>
         </div>
     </section>
@@ -189,7 +189,7 @@
             <div class="cta-content">
                 <h2 class="cta-title">Your Journey Starts Here</h2>
                 <p class="cta-subtitle">Join hundreds of successful traders who have transformed their crypto journey with Sonnie's guidance.</p>
-                <button class="cta-button primary large">Join Now</button>
+                <button class="cta-button primary large" onclick="openReservationModal()">Join Now</button>
                 <p class="cta-note">Limited spots available. Secure your place today.</p>
             </div>
         </div>
@@ -236,6 +236,100 @@
     <footer class="footer">
         <p>&copy; 2024 Sarah's Crypto Mentorship. All rights reserved.</p>
     </footer>
+
+    <!-- Reservation Modal -->
+    <div id="reservationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Reserve Your Spot</h2>
+                <span class="close" onclick="closeReservationModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="reservationForm" class="reservation-form">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experience">Trading Experience</label>
+                        <select id="experience" name="experience" required>
+                            <option value="">Select your experience level</option>
+                            <option value="beginner">Complete Beginner</option>
+                            <option value="some-experience">Some Experience</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="goals">What are your main goals?</label>
+                        <textarea id="goals" name="goals" rows="3" placeholder="Tell us about your trading goals..."></textarea>
+                    </div>
+                    
+                    <div class="payment-section">
+                        <h3>Payment Information</h3>
+                        <div class="payment-options">
+                            <div class="payment-option">
+                                <input type="radio" id="bitcoin" name="paymentMethod" value="bitcoin" required>
+                                <label for="bitcoin">
+                                    <span class="crypto-icon">₿</span>
+                                    Bitcoin
+                                </label>
+                            </div>
+                            <div class="payment-option">
+                                <input type="radio" id="ethereum" name="paymentMethod" value="ethereum" required>
+                                <label for="ethereum">
+                                    <span class="crypto-icon">Ξ</span>
+                                    Ethereum
+                                </label>
+                            </div>
+                            <div class="payment-option">
+                                <input type="radio" id="usdt" name="paymentMethod" value="usdt" required>
+                                <label for="usdt">
+                                    <span class="crypto-icon">₮</span>
+                                    USDT
+                                </label>
+                            </div>
+                            <div class="payment-option">
+                                <input type="radio" id="stellar" name="paymentMethod" value="stellar" required>
+                                <label for="stellar">
+                                    <span class="crypto-icon">★</span>
+                                    Stellar
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-details">
+                            <div class="price-display">
+                                <span class="currency">$</span>
+                                <span class="amount">497</span>
+                                <span class="period">/month</span>
+                            </div>
+                            <div class="crypto-amount" id="cryptoAmount">
+                                <span class="crypto-price">0.012 BTC</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="closeReservationModal()">Cancel</button>
+                        <button type="submit" class="btn-primary">Complete Reservation</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
