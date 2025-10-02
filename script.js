@@ -507,6 +507,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize email capture form
     initializeEmailCapture();
+    
+    // Initialize back to top button
+    initializeBackToTop();
 });
 
 // Testimonials carousel functionality
@@ -649,4 +652,27 @@ function showSuccessMessage(name) {
             document.head.removeChild(style);
         }, 500);
     }, 5000);
+}
+
+// Back to top functionality
+function initializeBackToTop() {
+    const backToTopBtn = document.getElementById('backToTop');
+    if (!backToTopBtn) return;
+    
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+}
+
+// Scroll to top function
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 }
