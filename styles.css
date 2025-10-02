@@ -512,9 +512,18 @@ h1, h2, h3, h4, h5, h6 {
 
 /* About Mentor */
 .about-mentor {
-    padding: 4rem 0;
+    padding: 5rem 0 4rem 0;
     background: #2C3E50;
     color: white;
+}
+
+.about-mentor .section-title {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    font-size: 2.8rem;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
 }
 
 .mentor-content {
@@ -527,15 +536,22 @@ h1, h2, h3, h4, h5, h6 {
 
 .mentor-image {
     text-align: center;
+    padding: 3rem 0 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .mentor-photo {
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: center top;
     border: 5px solid #2C7A7B;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin: 2rem 0 1rem 0;
+    display: block;
 }
 
 .mentor-bio h3 {
@@ -1490,6 +1506,12 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 2rem;
     }
     
+    .about-mentor .section-title {
+        font-size: 2.2rem;
+        margin-top: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
     .cards-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -1501,9 +1523,15 @@ h1, h2, h3, h4, h5, h6 {
         gap: 2rem;
     }
     
+    .mentor-image {
+        padding: 2.5rem 0 1.5rem 0;
+    }
+    
     .mentor-photo {
-        width: 250px;
-        height: 250px;
+        width: 280px;
+        height: 280px;
+        object-position: center top;
+        margin: 1.5rem 0 0.5rem 0;
     }
     
     .mentor-stats {
@@ -1742,8 +1770,14 @@ h1, h2, h3, h4, h5, h6 {
         padding: 2rem 1.5rem;
     }
     
+    .mentor-image {
+        padding: 2rem 0 1rem 0;
+    }
+    
     .mentor-photo {
-        width: 200px;
-        height: 200px;
+        width: 220px;
+        height: 220px;
+        object-position: center top;
+        margin: 1rem 0 0.5rem 0;
     }
 }
