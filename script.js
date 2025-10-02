@@ -504,6 +504,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize testimonials carousel
     initializeTestimonials();
+    
+    // Initialize email capture form
+    initializeEmailCapture();
 });
 
 // Testimonials carousel functionality
@@ -519,4 +522,131 @@ function initializeTestimonials() {
     track.addEventListener('animationiteration', function() {
         // The animation will automatically loop due to infinite property
     });
+}
+
+// Email capture functionality
+function initializeEmailCapture() {
+    const form = document.getElementById('emailCaptureForm');
+    if (!form) return;
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(form);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        
+        // Show loading state
+        const submitBtn = form.querySelector('.download-btn');
+        const originalText = submitBtn.querySelector('.btn-text').textContent;
+        
+        submitBtn.querySelector('.btn-text').textContent = 'Processing...';
+        submitBtn.disabled = true;
+        
+        // Simulate email capture and PDF download
+        setTimeout(() => {
+            // Store email in localStorage (in real app, send to your email service)
+            const leads = JSON.parse(localStorage.getItem('emailLeads') || '[]');
+            leads.push({
+                name: name,
+                email: email,
+                date: new Date().toISOString(),
+                source: 'Free Guide Download'
+            });
+            localStorage.setItem('emailLeads', JSON.stringify(leads));
+            
+            // Trigger PDF download
+            downloadPDF();
+            
+            // Show success message
+            showSuccessMessage(name);
+            
+            // Reset form
+            form.reset();
+            submitBtn.querySelector('.btn-text').textContent = originalText;
+            submitBtn.disabled = false;
+        }, 2000);
+    });
+}
+
+// Download PDF function
+function downloadPDF() {
+    // Create a temporary link to download the PDF
+    const link = document.createElement('a');
+    link.href = 'assets/crypto.pdf';
+    link.download = 'Introduction-to-Crypto-Trading.pdf';
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+// Show success message
+function showSuccessMessage(name) {
+    // Create success notification
+    const notification = document.createElement('div');
+    notification.className = 'success-notification';
+    notification.innerHTML = `
+        <div class="notification-content">
+            <div class="notification-icon">✅</div>
+            <div class="notification-text">
+                <h4>Thank you, ${name}!</h4>
+                <p>Your free guide is downloading. Check your email for additional resources.</p>
+            </div>
+        </div>
+    `;
+    
+    // Add notification styles
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, #2C7A7B, #236B6B);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        z-index: 10000;
+        max-width: 350px;
+        animation: slideInRight 0.5s ease;
+    `;
+    
+    // Add animation styles
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .notification-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .notification-icon {
+            font-size: 1.5rem;
+        }
+        .notification-text h4 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.1rem;
+        }
+        .notification-text p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    document.body.appendChild(notification);
+    
+    // Remove notification after 5 seconds
+    setTimeout(() => {
+        notification.style.animation = 'slideInRight 0.5s ease reverse';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+            document.head.removeChild(style);
+        }, 500);
+    }, 5000);
 }
