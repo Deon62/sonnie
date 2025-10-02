@@ -536,7 +536,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .mentor-image {
     text-align: center;
-    padding: 3rem 0 2rem 0;
+    padding: 1.5rem 0 2rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -550,7 +550,7 @@ h1, h2, h3, h4, h5, h6 {
     object-position: center top;
     border: 5px solid #2C7A7B;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    margin: 2rem 0 1rem 0;
+    margin: 0.5rem 0 1rem 0;
     display: block;
 }
 
@@ -1524,14 +1524,14 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .mentor-image {
-        padding: 2.5rem 0 1.5rem 0;
+        padding: 1rem 0 1.5rem 0;
     }
     
     .mentor-photo {
         width: 280px;
         height: 280px;
         object-position: center top;
-        margin: 1.5rem 0 0.5rem 0;
+        margin: 0.5rem 0 0.5rem 0;
     }
     
     .mentor-stats {
@@ -1771,13 +1771,13 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .mentor-image {
-        padding: 2rem 0 1rem 0;
+        padding: 0.8rem 0 1rem 0;
     }
     
     .mentor-photo {
         width: 220px;
         height: 220px;
         object-position: center top;
-        margin: 1rem 0 0.5rem 0;
+        margin: 0.3rem 0 0.5rem 0;
     }
 }
